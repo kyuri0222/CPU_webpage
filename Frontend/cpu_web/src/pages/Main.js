@@ -4,7 +4,7 @@ const Main = () => {
   
     return (
       <div>
-          Main
+          종늫갑멍ㅎ너ㅑㅐ
       </div>
     );
   };
