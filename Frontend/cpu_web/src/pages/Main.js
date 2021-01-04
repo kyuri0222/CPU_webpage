@@ -4,7 +4,7 @@ const Main = () => {
   
     return (
       <div>
-          종늫갑멍ㅎ너ㅑㅐ
+          CPU 학생회 웹페이지
       </div>
     );
   };
