@@ -1,4 +1,4 @@
-import { Nav } from "./pages";
+import Nav from "./../src/pages/Nav";
 import { BrowserRouter } from 'react-router-dom';
 
 const App = () => (
