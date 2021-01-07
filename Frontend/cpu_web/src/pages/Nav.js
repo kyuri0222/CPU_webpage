@@ -1,6 +1,6 @@
 import { React ,useState }  from "react";
 import { Route, Switch } from 'react-router-dom';
-import Layout from './Main/Layout';
+import MainLayout from './Main/MainLayout';
 import { Login, Signup, Findpw } from './Auth';
 const Nav = () => {
     //const [isloggedin, setloggedin] = useState(true);
@@ -11,7 +11,7 @@ const Nav = () => {
                 <Route exact path="/login" component={ Login }/>
 				<Route exact path="/Signup" component={ Signup }/>
 				<Route exact path="/Findpw" component={ Findpw }/>
-                <Route path="/" component={ Layout }/>
+                <Route path="/" component={ MainLayout }/>
 			</Switch>
 		</>
 	);
