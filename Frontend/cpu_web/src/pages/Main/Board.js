@@ -1,54 +1,62 @@
 import React from 'react';
-import { Typography, Row, Col, Input, Button } from 'antd';
-import { SmileOutlined } from '@ant-design/icons';
+import Link from '@material-ui/core/Link';
+import { makeStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Title from './Title';
 
-const Board = ({ title }) => {
-	const { Title } = Typography;
-	const { Search } = Input;
-	const onSearch = (event) => {};
-	return (
-		<>
-			<header>
-				<Row>
-					<Col span={24}>
-						<Title level={2}>
-							<SmileOutlined />
-							{`${title} 게시판`}
-							<SmileOutlined />
-						</Title>
-					</Col>
-				</Row>
-				<Row>
-					<Col span={12}>
-						<Search
-							placeholder='검색어를 입력해주세요.'
-							onSearch={onSearch}
-							enterButton
-						/>
-					</Col>
-					<Col span={4} offset={8}>
-						<Button size={'Large'}>글쓰기</Button>
-					</Col>
-				</Row>
-			</header>
-			<main>
-				<section>
-					<Row>
-						<Col span={16}>제목</Col>
-						<Col span={3}>글쓴이</Col>
-						<Col span={5}>작성일</Col>
-					</Row>
-				</section>
-				<section>
-					<Row>
-						<Col span={16}>제목테스트입니다.</Col>
-						<Col span={3}>유도진</Col>
-						<Col span={5}>2021.01.08</Col>
-					</Row>
-				</section>
-			</main>
-		</>
-	);
-};
+// Generate Order Data
+function createData(id, date, name, shipTo, paymentMethod) {
+  return { id, date, name, shipTo, paymentMethod};
+}
 
-export default Board;
+const rows = [
+  createData(0, '1', '제목 테스트입니다', '유도진', '20200501', 312.44),
+];
+
+function preventDefault(event) {
+  event.preventDefault();
+}
+
+const useStyles = makeStyles((theme) => ({
+  seeMore: {
+    marginTop: theme.spacing(3),
+  },
+}));
+
+export default function Orders() {
+  const classes = useStyles();
+  return (
+    <React.Fragment>
+      <Title>자유 게시판</Title>
+      <Table size="small">
+        <TableHead>
+          <TableRow>
+		  	<TableCell>번호</TableCell>
+            <TableCell>제목</TableCell>
+            <TableCell>글쓴이</TableCell>
+            <TableCell>작성일</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {rows.map((row) => (
+            <TableRow key={row.id}>
+              <TableCell>{row.date}</TableCell>
+              <TableCell>{row.name}</TableCell>
+              <TableCell>{row.shipTo}</TableCell>
+              <TableCell>{row.paymentMethod}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+      <div className={classes.seeMore}>
+        <Link color="primary" href="#" onClick={preventDefault}>
+          See more orders
+        </Link>
+      </div>
+    </React.Fragment>
+  );
+}
