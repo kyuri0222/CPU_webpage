@@ -1,12 +1,8 @@
 import React from 'react';
+import Board from './Board';
 
 const Free = () => {
-  
-    return (
-      <div>
-          자유게시판입니다.
-      </div>
-    );
-  };
-  
-  export default Free;
+	return <Board title={'자유'} />;
+};
+
+export default Free;
