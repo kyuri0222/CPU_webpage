@@ -1,117 +1,141 @@
-import React, { useState }  from 'react';
-import { Form, Input, Button } from "antd";
+import React from 'react';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import Link from '@material-ui/core/Link';
+import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
 
-
-const Signup = () => {
-  const [name, setName] = useState("");
-  const [stunum, setStunum] = useState("");
-  const [password, setPassword] = useState("");
-  const [phone, setPhone] = useState("");
-  const [major, setMajor] = useState("");
-  const [grade, setGrade] = useState("");
-
-  const onSubmit = () => {};
-
-  const onChangeName = e => {
-    setName(e.target.value);
-  };
-
-  const onChangeStunum = e => {
-    setStunum(e.target.value);
-  };
-
-  const onChangePassword = e => {
-    setPassword(e.target.value);
-  };
-
-  const onChangePhone = e => {
-    setPhone(e.target.value);
-  };
-
-  const onChangeMajor = e => {
-    setMajor(e.target.value);
-  };
-
-  const onChangeGrade = e => {
-    setGrade(e.target.value);
-  };
-
- return (
-        <Form onSubmit={onSubmit} style={{ padding: 10 }}>
-
-          <div>
-            <label htmlFor="user-name">이름</label>
-            <br />
-            <Input name="user-name" value={name} required onChange={onChangeName} />
-          </div>
-
-          <div>
-            <label htmlFor="user-stunum">학번</label>
-            <br />
-            <Input
-              name="user-stunum"
-              value={stunum}
-              required
-              onChange={onChangeStunum}
-            />
-          </div>
-
-          <div>
-            <label htmlFor="user-password">비밀번호 ( 8자리 이상 )</label>
-            <br />
-            <Input
-              name="user-password"
-              type="password"
-              value={password}
-              required
-              onChange={onChangePassword}
-            />
-          </div>
-
-          <div>
-            <label htmlFor="user-phone">전화번호</label>
-            <br />
-            <Input
-              name="user-phone"
-              value={phone}
-              required
-              onChange={onChangePhone}
-            />
-          </div>
-
-          <div>
-            <label htmlFor="user-major">전공</label>
-            <br />
-            <Input
-              name="user-major"
-              value={major}
-              required
-              onChange={onChangeMajor}
-            />
-          </div>
-
-          <div>
-            <label htmlFor="user-grade">학년</label>
-            <br />
-            <Input
-              name="user-grade"
-              value={grade}
-              required
-              onChange={onChangeGrade}
-            />
-          </div>
-
-          <div>
-            <Button type="primary">확인</Button>{" "}
-            {/* // button type="submit"하려면 htmlType="submit"라고해야함 */}
-          </div>
-          <div>
-            <Button type="primary">취소</Button>{" "}
-          </div>
-
-        </Form>
+function Copyright() {
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {'Copyright © '}
+      <Link color="inherit" href="https://material-ui.com/">
+        Your Website
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
   );
-};
+}
 
-  
-  export default Signup;
+const useStyles = makeStyles((theme) => ({
+  paper: {
+    marginTop: theme.spacing(8),
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  avatar: {
+    margin: theme.spacing(1),
+    backgroundColor: theme.palette.secondary.main,
+  },
+  form: {
+    width: '100%', // Fix IE 11 issue.
+    marginTop: theme.spacing(3),
+  },
+  submit: {
+    margin: theme.spacing(3, 0, 2),
+  },
+}));
+
+export default function SignUp() {
+  const classes = useStyles();
+
+  return (
+    <Container component="main" maxWidth="xs">
+      <CssBaseline />
+      <div className={classes.paper}>
+        <Typography component="h1" variant="h5">
+          회원가입
+        </Typography>
+        <form className={classes.form} noValidate>
+          <Grid container spacing={2}>
+          <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                id="name"
+                label="이름"
+                name="name"
+                autoComplete="name"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                id="sno"
+                label="학번"
+                name="sno"
+                autoComplete="sno"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                id="password"
+                label="비밀번호(8자리 이상)"
+                type="password"
+                name="password"
+                autoComplete="password"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                id="phone"
+                label="핸드폰번호"
+                name="phone"
+                autoComplete="phone"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                id="major"
+                label="전공"
+                name="major"
+                autoComplete="major"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                name="year"
+                label="학년"
+                id="year"
+                autoComplete="year"
+              />
+            </Grid>
+          </Grid>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+          >
+            회원가입
+          </Button>
+        </form>
+      </div>
+      <Box mt={5}>
+        <Copyright />
+      </Box>
+    </Container>
+  );
+}
