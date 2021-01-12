@@ -10,21 +10,21 @@ import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
-import Badge from '@material-ui/core/Badge';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems } from './ListItems';
 import Mainnav from './Mainnav'
+import CPU_logo from './CPU_logo.jpg';
+
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-      CPU WEBPAGE
+      <Link color="inherit" href="#">
+        CPU WEBPAGE
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -40,20 +40,22 @@ const useStyles = makeStyles((theme) => ({
   },
   toolbar: {
     paddingRight: 24, // keep right padding when drawer closed
+    backgroundColor: "#F8D67F",
   },
   toolbarIcon: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'flex-end',
-    padding: '0 8px',
+    justifyContent: 'center',
+    margin:30,
     ...theme.mixins.toolbar,
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
+    boxShadow: 'none',
     transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
-    }),
+    })
   },
   appBarShift: {
     marginLeft: drawerWidth,
@@ -65,14 +67,20 @@ const useStyles = makeStyles((theme) => ({
   },
   menuButton: {
     marginRight: 36,
+    color: "#B6872C"
   },
   menuButtonHidden: {
     display: 'none',
   },
-  title: {
-    flexGrow: 1,
+  drawerButton: {
+    marginRight: 36,
+  },
+  drawerButtonHidden: {
+    display: 'none',
   },
   drawerPaper: {
+    backgroundColor: "#F8D67F",
+    borderRight:0,
     position: 'relative',
     whiteSpace: 'nowrap',
     width: drawerWidth,
@@ -137,14 +145,6 @@ export default function Dashboard() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-            CPU WEBPAGE
-          </Typography>
-          <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
-              <NotificationsIcon />
-            </Badge>
-          </IconButton>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -155,13 +155,14 @@ export default function Dashboard() {
         open={open}
       >
         <div className={classes.toolbarIcon}>
-          <IconButton onClick={handleDrawerClose}>
-            <ChevronLeftIcon />
-          </IconButton>
+        <img src={CPU_logo} width="80%" className={classes.drawerButton, !open && classes.drawerButtonHidden} />
         </div>
         <Divider />
         <List>{mainListItems}</List>
         <Divider />
+          <IconButton onClick={handleDrawerClose} className={classes.drawerButton, !open && classes.drawerButtonHidden}>
+            <ChevronLeftIcon />
+          </IconButton>
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />

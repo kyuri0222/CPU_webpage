@@ -2,22 +2,22 @@ import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import PeopleIcon from '@material-ui/icons/People';
-import LayersIcon from '@material-ui/icons/Layers';
+import QuestionAnswerIcon from '@material-ui/icons/QuestionAnswer';
+import BookmarksIcon from '@material-ui/icons/Bookmarks';
+import TocIcon from '@material-ui/icons/Toc';
 
 export const mainListItems = (
   <div>
     <ListItem button>
       <ListItemIcon>
-        <DashboardIcon />
+        <TocIcon />
       </ListItemIcon>
       <ListItemText primary="공지사항" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <ShoppingCartIcon />
+        <BookmarksIcon />
       </ListItemIcon>
       <ListItemText primary="복지사업" />
     </ListItem>
@@ -29,7 +29,7 @@ export const mainListItems = (
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <LayersIcon />
+        <QuestionAnswerIcon />
       </ListItemIcon>
       <ListItemText primary="자유게시판" />
     </ListItem>
