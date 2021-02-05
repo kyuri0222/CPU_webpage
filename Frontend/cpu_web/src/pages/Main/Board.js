@@ -1,74 +1,145 @@
-import React from 'react';
-import Link from '@material-ui/core/Link';
-import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Title from './Title';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-// import IconButton from '@material-ui/core/IconButton';
-// import SearchIcon from '@material-ui/icons/Search';
-import SearchBar from 'material-ui-search-bar';
-// Generate Order Data
-function createData(id, date, name, shipTo, paymentMethod) {
-	return { id, date, name, shipTo, paymentMethod };
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import { Link, useParams } from "react-router-dom";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import Title from "./Title";
+import PaginationItem from "@material-ui/lab/PaginationItem";
+import Pagination from "@material-ui/lab/Pagination";
+import Typography from "@material-ui/core/Typography";
+import Box from "@material-ui/core/Box";
+import Button from "@material-ui/core/Button";
+function createData(id, title, name, date) {
+  return { id, title, name, date };
 }
 
 const rows = [
-	createData(0, '1', '제목 테스트입니다', '유도진', '20200501', 312.44),
+  createData("1", "제목 테스트입니다", "조은학", "20200501"),
+  createData("2", "제목 테스트입니다", "조은학", "20200501"),
+  createData("3", "제목 테스트입니다", "조은학", "20200501"),
+  createData("4", "제목 테스트입니다", "조은학", "20200501"),
+  createData("5", "제목 테스트입니다", "조은학", "20200501"),
+  createData("6", "제목 테스트입니다", "조은학", "20200501"),
+  createData("7", "제목 테스트입니다", "조은학", "20200501"),
+  createData("8", "제목 테스트입니다", "조은학", "20200501"),
+  createData("9", "제목 테스트입니다", "조은학", "20200501"),
+  createData("10", "제목 테스트입니다", "조은학", "20200501"),
+  createData("11", "제목 테스트입니다", "조은학", "20200501"),
+  createData("12", "제목 테스트입니다", "조은학", "20200501"),
+  createData("13", "제목 테스트입니다", "조은학", "20200501"),
+  createData("14", "제목 테스트입니다", "조은학", "20200501"),
 ];
 
 function preventDefault(event) {
-	event.preventDefault();
+  event.preventDefault();
 }
 
 const useStyles = makeStyles((theme) => ({
-	seeMore: {
-		marginTop: theme.spacing(3),
-	},
+  seeMore: {
+    marginTop: theme.spacing(3),
+  },
 }));
 
-export default function Orders() {
-	const classes = useStyles();
-	return (
-		<React.Fragment>
-			<header>
-				<Title>자유 게시판</Title>
-				<div>
-					<SearchBar />
-					<Button variant='contained' color='primary'>
-						글쓰기
-					</Button>
-				</div>
-			</header>
-			<Table size='small'>
-				<TableHead>
-					<TableRow>
-						<TableCell>번호</TableCell>
-						<TableCell>제목</TableCell>
-						<TableCell>글쓴이</TableCell>
-						<TableCell>작성일</TableCell>
-					</TableRow>
-				</TableHead>
-				<TableBody>
-					{rows.map((row) => (
-						<TableRow key={row.id}>
-							<TableCell>{row.date}</TableCell>
-							<TableCell>{row.name}</TableCell>
-							<TableCell>{row.shipTo}</TableCell>
-							<TableCell>{row.paymentMethod}</TableCell>
-						</TableRow>
-					))}
-				</TableBody>
-			</Table>
-			<div className={classes.seeMore}>
-				<Link color='primary' href='#' onClick={preventDefault}>
-					See more orders
-				</Link>
-			</div>
-		</React.Fragment>
-	);
+export default function Board({ title }) {
+  const USER_PATH = `/notice/${title}/noticelist`;
+  const ROWS_PER_PAGE = 10;
+  const { pageNumber = 1 } = useParams();
+  const classes = useStyles();
+  return (
+    <React.Fragment>
+      <Title>{title}</Title>
+      <Link to={`/notice/${title}/create`}>
+        <Button color="primary" variant="contained">
+          작성하기
+        </Button>
+      </Link>
+      <Table className={classes.table} size="small">
+        <TableHead>
+          <TableRow>
+            <TableCell align="center" width="10%">
+              <Typography component={"span"} variant="subtitle2">
+                번호
+              </Typography>
+            </TableCell>
+            <TableCell align="center" width="50%">
+              제목
+            </TableCell>
+            <TableCell align="center" width="20%">
+              작성자
+            </TableCell>
+            <TableCell align="center" width="20%">
+              작성일
+            </TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {(ROWS_PER_PAGE > 0
+            ? rows.slice(
+                (Number(pageNumber) - 1) * ROWS_PER_PAGE,
+                (Number(pageNumber) - 1) * ROWS_PER_PAGE + ROWS_PER_PAGE
+              )
+            : rows
+          ).map((row) => {
+            return (
+              <TableRow key={row.id}>
+                <TableCell
+                  component={Link}
+                  to={`/notice/${title}/detail/${row.id}`}
+                  style={{ textDecoration: "none" }}
+                  align="center"
+                  width="10%"
+                >
+                  {row.id}
+                </TableCell>
+                <TableCell
+                  component={Link}
+                  to={`/notice/${title}/detail/${row.id}`}
+                  style={{ textDecoration: "none" }}
+                  width="50%"
+                >
+                  {row.title}
+                </TableCell>
+                <TableCell align="center" width="20%">
+                  {row.name}
+                </TableCell>
+                <TableCell align="center" width="20%">
+                  {row.date}
+                </TableCell>
+              </TableRow>
+            );
+          })}
+        </TableBody>
+      </Table>
+
+      <Box
+        display="flex"
+        justifyContent="flex-end"
+        flex={1}
+        padding={1}
+        paddingRight={10}
+      >
+        <Pagination
+          page={Number(pageNumber)}
+          count={Math.ceil(rows.length / ROWS_PER_PAGE)}
+          shape="rounded"
+          color="primary"
+          showFirstButton
+          showLastButton
+          boundaryCount={2}
+          renderItem={(item) => (
+            <PaginationItem
+              type={"start-ellipsis"}
+              component={Link}
+              selected
+              to={`${USER_PATH}/${item.page}`}
+              {...item}
+            />
+          )}
+        />
+      </Box>
+    </React.Fragment>
+  );
 }

@@ -17,7 +17,10 @@ export const mainListItems = (
         <ListItemText primary="메인페이지" />
       </ListItem>
     </Link>
-    <Link to="/notice" style={{ textDecoration: "none", color: "black" }}>
+    <Link
+      to="/notice/공지사항/noticelist/1"
+      style={{ textDecoration: "none", color: "black" }}
+    >
       <ListItem button>
         <ListItemIcon>
           <TocIcon />
@@ -33,20 +36,34 @@ export const mainListItems = (
         <ListItemText primary="복지사업" />
       </ListItem>
     </Link>
-    <Link to="/getajob" style={{ textDecoration: "none", color: "black" }}>
+    <Link
+      to="/notice/취업게시판/noticelist/1"
+      style={{ textDecoration: "none", color: "black" }}
+    >
       <ListItem button>
         <ListItemIcon>
           <PeopleIcon />
         </ListItemIcon>
-        <ListItemText primary="취업 게시판" />
+        <ListItemText primary="취업게시판" />
       </ListItem>
     </Link>
-    <Link to="/free" style={{ textDecoration: "none", color: "black" }}>
+    <Link
+      to="/notice/자유게시판/noticelist/1"
+      style={{ textDecoration: "none", color: "black" }}
+    >
       <ListItem button>
         <ListItemIcon>
           <QuestionAnswerIcon />
         </ListItemIcon>
         <ListItemText primary="자유게시판" />
+      </ListItem>
+    </Link>
+    <Link to="/mypage" style={{ textDecoration: "none", color: "black" }}>
+      <ListItem button>
+        <ListItemIcon>
+          <QuestionAnswerIcon />
+        </ListItemIcon>
+        <ListItemText primary="마이페이지" />
       </ListItem>
     </Link>
   </div>
