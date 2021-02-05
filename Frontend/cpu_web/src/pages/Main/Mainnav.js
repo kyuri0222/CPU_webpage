@@ -1,14 +1,6 @@
 import { React } from "react";
 import { Route, Switch } from "react-router-dom";
-import {
-  Free,
-  Main,
-  Welfare,
-  Getajob,
-  Notice,
-  NoticeCreate,
-  NoticeDetail,
-} from "./";
+import { Main, Welfare, Notice, NoticeCreate, NoticeDetail, Mypage } from "./";
 const MainNav = () => {
   return (
     <>
@@ -22,6 +14,7 @@ const MainNav = () => {
         <Route exact path="/notice/:tab/detail/:num" component={NoticeDetail} />
         <Route exact path="/notice/:tab/create" component={NoticeCreate} />
         <Route exact path="/welfare" component={Welfare} />
+        <Route exact path="/mypage" component={Mypage} />
       </Switch>
     </>
   );
