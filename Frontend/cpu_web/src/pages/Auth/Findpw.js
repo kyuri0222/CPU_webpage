@@ -1,100 +1,29 @@
-
-
-
 import React from 'react';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
+import "./Findpw.css";
+import CPU_logo_login from "./CPU_logo_login.jpg";
+import user from "./user.png";
+import key from "./key.png";
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+const Findpw = () => {
+    return (
+            <div class="user_card">
+                <div class="brand_logo_container">
+                    <img src={CPU_logo_login} class="brand_logo" alt="Logo"/>
+                </div>
+                <form class="form_container">
+                    <div class="stdnum_input">
+                        <div class="stdnum_input_icon"><img class="stdnum_input_icon_img" src={user}/></div>
+                        <input type="text" class="stdnum_input_box" placeholder="   학번"/>
+                    </div>
+                    <div class="phnum_input">
+                        <div class="phnum_input_icon"><img class="phnum_input_icon_img" src={key}/></div>
+                        <input type="password" class="phnum_input_box" placeholder="   휴대폰번호"/>
+                    </div>
+                    <button type="button" class="findpw_btn">입력</button>
+                </form>
 
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: '100%', 
-    marginTop: theme.spacing(3),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-}));
+            </div>
+    );
+};
 
-export default function Findpw() {
-  const classes = useStyles();
-
-  return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <div className={classes.paper}>
-        <Typography component="h1" variant="h5">
-          비밀번호 찾기
-        </Typography>
-        <form className={classes.form} noValidate>
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="sno"
-                label="학번"
-                name="sno"
-                autoComplete="sno"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="phone"
-                label="핸드폰번호"
-                name="phone"
-                autoComplete="phone"
-              />
-            </Grid>
-           
-          </Grid>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-          >
-            입력
-          </Button>
-        </form>
-      </div>
-      <Box mt={5}>
-        <Copyright />
-      </Box>
-    </Container>
-  );
-}
+export default Findpw;
