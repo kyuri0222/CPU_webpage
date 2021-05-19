@@ -1,4 +1,4 @@
-import Editor from "./QuillEditor";
+import Editor from "../QuillEditor";
 import React, { useState } from "react";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
@@ -36,7 +36,7 @@ const NoticeCreate = ({ match }) => {
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            <div>{team} 공지사항</div>
+            <div>취업게시판</div>
             <TextField
               id="outlined-full-width"
               label="제목"

@@ -18,7 +18,7 @@ export const mainListItems = (
       </ListItem>
     </Link>
     <Link
-      to="/notice/공지사항/noticelist/1"
+      to="/announce"
       style={{ textDecoration: "none", color: "black" }}
     >
       <ListItem button>
@@ -37,7 +37,7 @@ export const mainListItems = (
       </ListItem>
     </Link>
     <Link
-      to="/notice/취업게시판/noticelist/1"
+      to="/employee"
       style={{ textDecoration: "none", color: "black" }}
     >
       <ListItem button>
@@ -48,7 +48,7 @@ export const mainListItems = (
       </ListItem>
     </Link>
     <Link
-      to="/notice/자유게시판/noticelist/1"
+      to="/free"
       style={{ textDecoration: "none", color: "black" }}
     >
       <ListItem button>
