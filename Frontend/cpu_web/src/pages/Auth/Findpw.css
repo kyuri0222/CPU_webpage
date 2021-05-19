@@ -1,0 +1,224 @@
+body{
+    background-color: #FDF3DA; 
+}
+
+.user_card {
+    height: 500px;
+    width: 450px;
+    margin-left: 36%;
+    margin-right: 36%;
+    margin-top: 9%;
+    margin-bottom: 4%;
+    background: #F9D780;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+}
+
+.brand_logo_container {
+    position: absolute;
+    height: 155px;
+    width: 155px;
+    top: -75px;
+    border-radius: 50%;
+    background: #F6C84F;
+    padding: 10px;
+    text-align: center;
+    left: 150px;
+}
+
+.brand_logo {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.stdnum_input_icon {
+    background-color: #F6C23E;
+    position: absolute;
+    width: 62px;
+    height: 62px;
+    left: 78px;
+    top: 150px;
+	border-radius: 5px 0px 0px 5px;
+}
+
+.stdnum_input_icon_img {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    margin: 15px 18px;
+}
+
+.stdnum_input_box {
+    position: absolute;
+    width: 250px;
+    height: 60px;
+    right: 78px;
+    top: 150px;
+	background-color: #FDF3DA;
+	border-radius: 0px 5px 5px 0px;
+	border-style: none;
+}
+
+.phnum_input_icon {
+    background-color: #F6C23E;
+    position: absolute;
+    width: 62px;
+    height: 62px;
+    left: 78px;
+    top: 250px;
+	border-radius: 5px 0px 0px 5px;
+}
+
+.phnum_input_icon_img {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    margin: 15px 15px;
+}
+
+.phnum_input_box {
+    position: absolute;
+    width: 250px;
+    height: 60px;
+    right: 78px;
+    top: 250px;
+	background-color: #FDF3DA;
+	border-radius: 0px 5px 5px 0px;
+	border-style: none;
+}
+
+.findpw_btn {
+    position: absolute;
+    width: 250px;
+    height: 54px;
+    top: 360px;
+    left: 115px;
+    background: #F6C84F;
+    color: white !important;
+	border-radius: 5px;
+	border-style: none;
+    font-size: medium;
+}
+
+.signup_forgot {
+    position: absolute;
+    width: 315px;
+    height: 54px;
+    top: 447px;
+    left: 78px;
+    color: black;
+	text-align: center;
+}
+
+@media all and (min-width:769px) and (max-width:1024px) {
+    .user_card {
+        margin-left: 25%;
+        margin-right: 25%;
+        margin-top: 23%;
+        margin-bottom:10%;
+    }
+  }
+
+  @media all and (min-width:415px) and (max-width:768px) {
+    .user_card {
+        margin-left: 19%;
+        margin-right: 15%;
+        margin-top: 23%;
+        margin-bottom:10%;
+    }
+  }
+
+  @media all and (min-width:376px) and (max-width:415px) { 
+    .user_card {
+        height: 600px;
+        width: 355px;
+        margin-left: 20px;
+        margin-right:20px;
+        margin-top:35%;
+        margin-bottom: 25%;
+    }
+    .brand_logo_container {
+        left: 100px;
+    }
+
+    .stdnum_input_icon {
+        left: 30px;
+        top: 170px;
+    }
+    
+    .stdnum_input_box {
+        right: 30px;
+        top: 170px;
+        width: 248px;
+    }
+
+    .phnum_input_icon {
+        left: 30px;
+        top: 270px;
+    }
+    
+    .phnum_input_box {
+        right: 30px;
+        top: 270px;
+        width: 248px;
+    }
+
+    .findpw_btn {
+        top: 390px;
+        left: 65px;
+    }
+    .signup_forgot {
+        top: 490px;
+        left: 28px;
+    }
+  }
+
+  @media all and (max-width:376px) { 
+    .user_card {
+        height: 600px;
+        width: 320px;
+        margin-left: 20px;
+        margin-right:35px;
+        margin-top:35%;
+        margin-bottom: 5%;
+    }
+    .brand_logo_container {
+        left: 85px;
+    }
+
+    .stdnum_input_icon {
+        left: 30px;
+        top: 170px;
+    }
+    
+    .stdnum_input_box {
+        right: 30px;
+        top: 170px;
+        width: 214px;
+    }
+
+    .phnum_input_icon {
+        left: 30px;
+        top: 270px;
+    }
+    
+    .phnum_input_box {
+        right: 30px;
+        top: 270px;
+        width: 214px;
+    }
+
+    .findpw_btn {
+        top: 390px;
+        left: 46px;
+    }
+  }
