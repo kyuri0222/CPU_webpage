@@ -6,8 +6,8 @@ import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import Divider from "@material-ui/core/Divider";
 import Button from "@material-ui/core/Button";
-import "./NoticeDetail.css";
-const NoticeDetail = () => {
+import "./FreeDetail.css";
+const FreeDetail = () => {
   const useStyles = makeStyles((theme) => ({
     paper: {
       padding: theme.spacing(2),
@@ -84,4 +84,4 @@ const NoticeDetail = () => {
   );
 };
 
-export default NoticeDetail;
+export default FreeDetail;
