@@ -5,8 +5,8 @@ body{
 .user_card {
     height: 500px;
     width: 450px;
-    margin-left: 36%;
-    margin-right: 36%;
+    margin-left: 50%;
+    margin-right: 50%;
     margin-top: 9%;
     margin-bottom: 4%;
     background: #F9D780;
@@ -20,3 +20,149 @@ body{
     -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
 }
+
+.brand_logo_container {
+    position: absolute;
+    height: 155px;
+    width: 155px;
+    top: -75px;
+    border-radius: 50%;
+    background: #F6C84F;
+    padding: 10px;
+    text-align: center;
+    left: 150px;
+}
+
+.brand_logo {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.input_box {
+    width: 400px;
+    height: 40px;
+    left: 80px;
+    top: 250px;
+	background-color: #FDF3DA;
+	border-radius: 5px;
+	border-style: none;
+}
+
+.box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 300px;
+    margin-left: 20px;
+  }
+  
+.yes_btn {
+    position: absolute;
+    width: 150px;
+    height: 54px;
+    top: 430px;
+    left: 60px;
+    background: #F6C84F;
+    color: white !important;
+	border-radius: 5px;
+	border-style: none;
+    font-size: medium;
+}
+
+.no_btn {
+    position: absolute;
+    width: 150px;
+    height: 54px;
+    top: 430px;
+    right: 60px;
+    background: #F6C84F;
+    color: white !important;
+	border-radius: 5px;
+	border-style: none;
+    font-size: medium;
+}
+
+@media all and (min-width:769px) and (max-width:1024px) {
+    .user_card {
+        margin-left: 25%;
+        margin-right: 25%;
+        margin-top: 23%;
+        margin-bottom:10%;
+    }
+  }
+
+  @media all and (min-width:415px) and (max-width:768px) {
+    .user_card {
+        margin-left: 19%;
+        margin-right: 15%;
+        margin-top: 23%;
+        margin-bottom:10%;
+    }
+  }
+
+  @media all and (min-width:376px) and (max-width:415px) { 
+    .user_card {
+        height: 600px;
+        width: 355px;
+        margin-left: 20px;
+        margin-right:20px;
+        margin-top:35%;
+        margin-bottom: 25%;
+    }
+    .brand_logo_container {
+        left: 100px;
+    }
+
+    
+    .input_box {
+        left: 30px;
+        top: 170px;
+        width: 248px;
+    }
+
+
+    .yes_btn {
+        top: 430px;
+        left: 40px;
+    }
+
+    .no_btn {
+        top: 390px;
+        left: 65px;
+    }
+
+  }
+
+  @media all and (max-width:376px) { 
+    .user_card {
+        height: 600px;
+        width: 320px;
+        margin-left: 20px;
+        margin-right:35px;
+        margin-top:35%;
+        margin-bottom: 5%;
+    }
+    .brand_logo_container {
+        left: 85px;
+    }
+    
+    .input_box {
+        left: 50px;
+        top: 170px;
+        width: 214px;
+    }
+
+
+    .yes_btn {
+        top: 430px;
+        left: 46px;
+    }
+
+    .no_btn {
+        top: 430px;
+        left: 46px;
+    }
+
+  }

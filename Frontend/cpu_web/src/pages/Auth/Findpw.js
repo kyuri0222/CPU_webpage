@@ -2,7 +2,7 @@ import React from 'react';
 import "./Findpw.css";
 import CPU_logo_login from "./CPU_logo_login.jpg";
 import user from "./user.png";
-import key from "./key.png";
+import phone from "./phone.png";
 
 const Findpw = () => {
     return (
@@ -16,12 +16,11 @@ const Findpw = () => {
                         <input type="text" class="stdnum_input_box" placeholder="   학번"/>
                     </div>
                     <div class="phnum_input">
-                        <div class="phnum_input_icon"><img class="phnum_input_icon_img" src={key}/></div>
+                        <div class="phnum_input_icon"><img class="phnum_input_icon_img" src={phone}/></div>
                         <input type="password" class="phnum_input_box" placeholder="   휴대폰번호"/>
                     </div>
                     <button type="button" class="findpw_btn">입력</button>
                 </form>
-
             </div>
     );
 };
