@@ -17,6 +17,8 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import { mainListItems } from "./ListItems";
 import Mainnav from "./Mainnav";
 import CPU_logo from "./CPU_logo.jpg";
+import logout from "./logout.png";
+import './MainLayout.css';
 
 function Copyright() {
   return (
@@ -38,13 +40,19 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
   },
   toolbar: {
+    display:"flex",
     paddingRight: 24, // keep right padding when drawer closed
     backgroundColor: "#F8D67F",
+    justifyContent: "space-between",
+  },
+  toolbarOpen: {
+    display:"flex",
+    paddingRight: 24, // keep right padding when drawer closed
+    backgroundColor: "#F8D67F",
+    justifyContent: "flex-end",
   },
   toolbarIcon: {
-    display: "flex",
     alignItems: "center",
-    justifyContent: "center",
     margin: 30,
     ...theme.mixins.toolbar,
   },
@@ -117,7 +125,7 @@ const useStyles = makeStyles((theme) => ({
   },
   fixedHeight: {
     height: 240,
-  },
+  },    
 }));
 
 export default function Dashboard() {
@@ -137,7 +145,10 @@ export default function Dashboard() {
         position="absolute"
         className={clsx(classes.appBar, open && classes.appBarShift)}
       >
-        <Toolbar className={classes.toolbar}>
+        <Toolbar className={clsx(
+              classes.toolbar,
+              open && classes.toolbarOpen
+            )}>
           <IconButton
             edge="start"
             color="inherit"
@@ -150,7 +161,14 @@ export default function Dashboard() {
           >
             <MenuIcon />
           </IconButton>
+          <div class="logoutbox">
+          <a href="login">
+          <img src={logout}
+          className="logoutbutton"
+          />
+           </a></div>
         </Toolbar>
+        
       </AppBar>
       <Drawer
         variant="permanent"
@@ -167,6 +185,7 @@ export default function Dashboard() {
               (classes.drawerButton, !open && classes.drawerButtonHidden)
             }
           />
+
         </div>
         <Divider />
         <List>{mainListItems}</List>

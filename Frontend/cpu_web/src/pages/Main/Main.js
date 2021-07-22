@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -57,7 +58,7 @@ export default function Main() {
 				<Grid container item xs={6} justify='center'>
 					<Grid item xs={6}>
 						<Typography variant='h5' className={classes.NoticeHeader}>
-							공지사항
+							<Link to='/Announce'>공지사항</Link>
 						</Typography>
 					</Grid>
 					<Grid item xs={12}>
@@ -68,9 +69,11 @@ export default function Main() {
 				</Grid>
 				<Grid container item xs={6} justify='center'>
 					<Grid item xs={6}>
-						<Typography variant='h5' className={classes.NoticeHeader}>
-							공지사항
-						</Typography>
+						<Link to='/Announce'>
+							<Typography variant='h5' className={classes.NoticeHeader}>
+								공지사항
+							</Typography>
+						</Link>
 					</Grid>
 					<Grid item xs={12}>
 						<Typography className={classes.NoticeContainer}>

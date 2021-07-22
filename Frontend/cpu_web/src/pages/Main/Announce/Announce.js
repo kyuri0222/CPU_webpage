@@ -6,7 +6,7 @@ import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
-import Title from "./Title";
+import Title from "../../../components/Title";
 import PaginationItem from "@material-ui/lab/PaginationItem";
 import Pagination from "@material-ui/lab/Pagination";
 import Typography from "@material-ui/core/Typography";
@@ -43,15 +43,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Board({ title }) {
-  const USER_PATH = `/notice/${title}/noticelist`;
+export default function Announce({ title }) {
+  const USER_PATH = `/Announce/detail`;
   const ROWS_PER_PAGE = 10;
   const { pageNumber = 1 } = useParams();
   const classes = useStyles();
   return (
     <React.Fragment>
-      <Title>{title}</Title>
-      <Link to={`/notice/${title}/create`}>
+      <Title>공지사항</Title>
+      <Link to={`/Announce/create`}>
         <Button color="primary" variant="contained">
           작성하기
         </Button>
@@ -87,7 +87,7 @@ export default function Board({ title }) {
               <TableRow key={row.id}>
                 <TableCell
                   component={Link}
-                  to={`/notice/${title}/detail/${row.id}`}
+                  to={`/Announce/detail/${row.id}`}
                   style={{ textDecoration: "none" }}
                   align="center"
                   width="10%"
@@ -96,7 +96,7 @@ export default function Board({ title }) {
                 </TableCell>
                 <TableCell
                   component={Link}
-                  to={`/notice/${title}/detail/${row.id}`}
+                  to={`/Announce/detail/${row.id}`}
                   style={{ textDecoration: "none" }}
                   width="50%"
                 >
